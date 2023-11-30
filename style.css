@@ -1,0 +1,83 @@
+:root {
+    //
+}
+
+* {
+    font-size: 30px;
+    /* outline: 1px black dotted; */
+}
+
+ul {
+    list-style-type: none;
+    line-height: 2em;
+}
+
+ul.tree>li:after,
+ul.tree>li:before {
+    display: none;
+}
+
+ul li {
+    position: relative;
+
+}
+
+ul li::before {
+    border-left: 4px solid gray;
+    border-bottom: 4px solid gray;
+    content: "";
+    width: 15px;
+    height: 1em;
+    position: absolute;
+    left: -25px;
+    top: 0px;
+}
+
+ul li::after {
+    border-left: 4px solid gray;
+    content: "";
+    width: 15px;
+    height: 100%;
+    position: absolute;
+    left: -25px;
+    bottom: 0px;
+}
+
+ul li:last-child::after {
+    display: none;
+}
+
+summary {
+    cursor: pointer;
+    color: rgb(181, 34, 255)
+}
+
+summary::marker {
+    display: none;
+    color: red;
+    content: "";
+}
+
+summary::-webkit-details-marker {
+    /* display: none; */
+    background-color: red;
+    color: green
+}
+
+ul summary::before {
+    position: absolute;
+    /* left: -38px; */
+    /* top: 17px; */
+    content: "+";
+    background-color: rgba(255, 0, 0, 0.417);
+    color: rgb(0, 90, 128);
+    /* display: block; */
+    /* width: 30px;
+    height: 30px; */
+    /* border-radius: 50em; */
+    /* text-align: center; */
+    /* line-height: 1em; */
+    /* padding: 0; */
+    /* font-size: 50px; */
+    z-index: 999;
+}
