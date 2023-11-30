@@ -4,7 +4,10 @@
 
 * {
     font-size: 30px;
-    outline: 1px black dotted;
+    /* outline: 1px black dotted; */
+    border-color: red;
+    background-color: gainsboro;
+    margin: 0px;
 }
 
 ul {
@@ -19,10 +22,10 @@ ul.tree>li:before {
 
 ul li {
     position: relative;
-    padding: 12px 0px;
+    border-right: 5px solid yellowgreen;
     width: 500px;
-    border-right: 3px solid purple;
-    z-index: 1;
+    padding: 0px;
+    outline: 1px dotted;
 
 }
 
@@ -30,23 +33,21 @@ ul li::before {
     border-left: 4px solid gray;
     border-bottom: 4px solid gray;
     content: "";
-    width: 30px;
-    height: 1em;
+    width: 35px;
+    height: 50%;
     position: absolute;
-    left: -25px;
+    left: -35px; 
     top: 0px;
-    z-index: -1;
+
 }
 
 ul li::after {
     border-left: 4px solid gray;
     content: "";
-    width: 15px;
     height: 100%;
     position: absolute;
-    left: -25px;
+    left: -35px;
     bottom: 0px;
-    z-index: -1;
 }
 
 ul li:last-child::after {
@@ -70,34 +71,29 @@ summary::-webkit-details-marker {
     color: green
 }
 
-ul summary::before {
+/* ul summary::before {
     position: absolute;
-    left: -35px;
-    /* top: 17px; */
+    left: -1.5px;
+    top: .55em;
     content: "+";
     background-color: rgba(255, 0, 0, 0.417);
     color: rgb(0, 90, 128);
-    /* display: block; */
-    /* width: 30px;
-    height: 30px; */
-    /* border-radius: 50em; */
-    /* text-align: center; */
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50em;
+    text-align: center;
     line-height: auto;
-    /* padding: 0; */
-    /* font-size: 50px; */
+    font-size: 50px;
     z-index: 999;
-}
+} */
 
-ul details[open]>summary::before {
+/* ul details[open]>summary::before {
     content: "-";
-}
+} */
 
 .bigbox {
     width: 300px;
     height: 140px;
     background-color: green;
-}
-
-h1 {
-    margin: 0px;
 }
