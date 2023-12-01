@@ -1,0 +1,474 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sortable List</h2>
+
+    <ul id="sortable-list">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+        <li draggable="true">Item 4</li>
+        <li draggable="true">Item 5</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('sortable-list');
+
+        list.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.innerHTML);
+            e.target.classList.add('dragging');
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggingElement = document.querySelector('.dragging');
+            const closestElement = getClosestElement(list, e.clientY);
+
+            if (closestElement === null) {
+                list.appendChild(draggingElement);
+            } else {
+                list.insertBefore(draggingElement, closestElement);
+            }
+        });
+
+        list.addEventListener('dragend', (e) => {
+            e.target.classList.remove('dragging');
+        });
+
+        function getClosestElement(list, mouseY) {
+            const elements = Array.from(list.children);
+            return elements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = mouseY - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List with Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: grab;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li.dragging {
+            transform: scale(1.1);
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sortable List with Animation</h2>
+
+    <ul id="sortable-list">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+        <li draggable="true">Item 4</li>
+        <li draggable="true">Item 5</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('sortable-list');
+
+        list.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.innerHTML);
+            e.target.classList.add('dragging');
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggingElement = document.querySelector('.dragging');
+            const closestElement = getClosestElement(list, e.clientY);
+
+            if (closestElement === null) {
+                list.appendChild(draggingElement);
+            } else {
+                list.insertBefore(draggingElement, closestElement);
+            }
+        });
+
+        list.addEventListener('dragend', (e) => {
+            e.target.classList.remove('dragging');
+        });
+
+        function getClosestElement(list, mouseY) {
+            const elements = Array.from(list.children);
+            return elements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = mouseY - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List with Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: grab;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li.dragging {
+            transform: scale(1.1);
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sortable List with Animation</h2>
+
+    <ul id="sortable-list">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+        <li draggable="true">Item 4</li>
+        <li draggable="true">Item 5</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('sortable-list');
+
+        list.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.innerHTML);
+            e.target.classList.add('dragging');
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggingElement = document.querySelector('.dragging');
+            const closestElement = getClosestElement(list, e.clientY);
+
+            if (closestElement === null) {
+                list.appendChild(draggingElement);
+            } else {
+                list.insertBefore(draggingElement, closestElement);
+            }
+        });
+
+        list.addEventListener('dragend', (e) => {
+            e.target.classList.remove('dragging');
+        });
+
+        function getClosestElement(list, mouseY) {
+            const elements = Array.from(list.children);
+            return elements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = mouseY - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List with Custom Position</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: grab;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li.dragging {
+            transform: scale(1.1);
+            cursor: grabbing;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sortable List with Custom Position</h2>
+
+    <ul id="sortable-list">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+        <li draggable="true">Item 4</li>
+        <li draggable="true">Item 5</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('sortable-list');
+
+        list.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', e.target.innerHTML);
+            e.target.classList.add('dragging');
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggingElement = document.querySelector('.dragging');
+            const rect = list.getBoundingClientRect();
+
+            // Calculate the position based on mouse coordinates
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            draggingElement.style.left = `${mouseX}px`;
+            draggingElement.style.top = `${mouseY}px`;
+
+            const closestElement = getClosestElement(list, mouseY);
+
+            if (closestElement === null) {
+                list.appendChild(draggingElement);
+            } else {
+                list.insertBefore(draggingElement, closestElement);
+            }
+        });
+
+        list.addEventListener('dragend', (e) => {
+            const draggingElement = document.querySelector('.dragging');
+            draggingElement.classList.remove('dragging');
+            draggingElement.style.left = '';
+            draggingElement.style.top = '';
+        });
+
+        function getClosestElement(list, mouseY) {
+            const elements = Array.from(list.children);
+            return elements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = mouseY - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: grab;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        li.placeholder {
+            background-color: #ddd;
+        }
+
+        li.dragging {
+            transform: scale(1.1);
+            cursor: grabbing;
+            position: absolute;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Sortable List</h2>
+
+    <ul id="sortable-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+
+    <script>
+        let draggingElement;
+
+        const list = document.getElementById('sortable-list');
+
+        list.addEventListener('mousedown', (e) => {
+            const target = e.target.closest('li');
+
+            if (target) {
+                draggingElement = target;
+
+                const rect = target.getBoundingClientRect();
+
+                const offsetX = e.clientX - rect.left;
+                const offsetY = e.clientY - rect.top;
+
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+
+                function handleMouseMove(e) {
+                    draggingElement.classList.add('dragging');
+                    draggingElement.style.left = e.clientX - offsetX + 'px';
+                    draggingElement.style.top = e.clientY - offsetY + 'px';
+
+                    const placeholder = document.createElement('li');
+                    placeholder.classList.add('placeholder');
+                    list.insertBefore(placeholder, target.nextSibling);
+                }
+
+                function handleMouseUp() {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    document.removeEventListener('mouseup', handleMouseUp);
+
+                    draggingElement.classList.remove('dragging');
+                    draggingElement.style.left = '';
+                    draggingElement.style.top = '';
+
+                    const placeholder = document.querySelector('.placeholder');
+                    if (placeholder) {
+                        list.insertBefore(draggingElement, placeholder);
+                        list.removeChild(placeholder);
+                    }
+
+                    draggingElement = null;
+                }
+
+                e.preventDefault();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

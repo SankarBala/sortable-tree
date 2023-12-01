@@ -1,103 +1,69 @@
-:root {
-    //
+summary::marker {
+    display: none;
+    content: "";
 }
 
-* {
-    font-size: 30px;
-    outline: 1px black dotted;
+summary::after {
+    content: "+";
+    font-size: 40px;
+    text-align: center;
+    line-height: 1em;
+    color: black;
+    position: absolute;
+    right: 5px;
+    top: 30px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+ul details[open]>summary::after {
+    content: "-";
+    top: 26px;
 }
 
 ul {
     list-style-type: none;
-    line-height: 2em;
 }
 
-ul.tree>li:after,
-ul.tree>li:before {
-    display: none;
-}
 
-ul li {
-    position: relative;
-    padding: 12px 0px;
-    width: 500px;
-    border-right: 3px solid purple;
-    z-index: 1;
-
-}
-
-ul li::before {
-    border-left: 4px solid gray;
-    border-bottom: 4px solid gray;
-    content: "";
-    width: 30px;
-    height: 1em;
-    position: absolute;
-    left: -25px;
-    top: 0px;
-    z-index: -1;
-}
-
-ul li::after {
-    border-left: 4px solid gray;
-    content: "";
-    width: 15px;
-    height: 100%;
-    position: absolute;
-    left: -25px;
-    bottom: 0px;
-    z-index: -1;
-}
-
-ul li:last-child::after {
-    display: none;
-}
-
+li,
 summary {
-    cursor: pointer;
-    color: rgb(181, 34, 255)
-}
-
-summary::marker {
-    display: none;
-    color: red;
-    content: "";
-}
-
-summary::-webkit-details-marker {
-    /* display: none; */
-    background-color: red;
-    color: green
-}
-
-ul summary::before {
-    position: absolute;
-    left: -35px;
-    /* top: 17px; */
-    content: "+";
-    background-color: rgba(255, 0, 0, 0.417);
-    color: rgb(0, 90, 128);
-    /* display: block; */
-    /* width: 30px;
-    height: 30px; */
-    /* border-radius: 50em; */
-    /* text-align: center; */
-    line-height: auto;
-    /* padding: 0; */
-    /* font-size: 50px; */
-    z-index: 999;
-}
-
-ul details[open]>summary::before {
-    content: "-";
-}
-
-.bigbox {
-    width: 300px;
-    height: 140px;
-    background-color: green;
-}
-
-h1 {
+    position: relative;
+    padding: 0px;
+    width: 350px;
+    min-height: 80px;
     margin: 0px;
+    margin-bottom: 10px;
+    /* outline: 1px black dotted; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    border: 1px solid grey;
+    padding: 0px 15px;
+}
+
+
+li:not(:empty):not(:has(ul)) {
+    background-color: yellow;
+}
+
+
+li:has(ul) {
+    background-color: transparent;
+    margin: 0px 0px;
+    /* padding: 0px; */
+}
+
+
+.dropable {
+    outline: 2px dashed grey;
+}
+
+.dragging {
+    border: 1px solid red;
+    box-shadow: 2px 2px 30px 8px rgb(155, 155, 155);
+    /* display: none; */
+    background-color: blue;
 }

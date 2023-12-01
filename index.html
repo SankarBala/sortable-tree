@@ -9,16 +9,14 @@
 
 <body>
     <ul class="tree">
-        <li>
+        <!-- <li>
             <details open>
                 <summary>First Item</summary>
                 <ul>
                     <li>First Item</li>
                     <li>
                         <details open>
-                            <summary> <li>Third Tier</li></summary>
-
-                            <h3>sdfs</h3>
+                            <summary disabled> Third Tier disabled</summary>
                             <ul>
                                 <li>First Item</li>
                                 <li>Second Item</li>
@@ -28,7 +26,13 @@
                                     <div class="bigbox">Div</div>
                                 </li>
                                 <li>
-                                    <h1>Okkkk</h1>
+                                    <details open>
+                                        <summary aria-disabled="true"> Third Tier</summary>
+                                        <ul>
+                                            <li draggable="">First Item draggable</li>
+
+                                        </ul>
+                                    </details>
                                 </li>
                             </ul>
                         </details>
@@ -36,8 +40,7 @@
                     <li>Another Here</li>
                 </ul>
             </details>
-        </li>
-        <li>
+
             <details open>
                 <summary>Second Item</summary>
                 <ul>
@@ -64,42 +67,33 @@
                 </ul>
             </details>
         </li>
+        <li>Another Here</li> -->
+        <li>
+            <details open draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <summary>Root 1</summary>
+                <ul id="root1">
+                    <li draggable="true" ondragstart="drag(event)">Item 1.1</li>
+                    <li draggable="true" ondragstart="drag(event)">Item 1.2</li>
+                    <li draggable="true" ondragstart="drag(event)">Item 1.3</li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details open draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <summary>Root 2</summary>
+                <ul id="root2" class="dropable">
+                    <li draggable="true" ondragstart="drag(event)">Item 2.1</li>
+                    <li draggable="true" ondragstart="drag(event)">Item 2.2</li>
+                    <li class="dragging" draggable="true" ondragstart="drag(event)">Item 2.3</li>
+                </ul>
+            </details>
+
+
+
+        </li>
     </ul>
 
-
-    <!-- <script>
-        function allowDrop(event) {
-            event.preventDefault();
-            const draggedElement = document.querySelector('.dragging');
-            if (draggedElement) {
-                event.target.classList.add('dragover');
-            }
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            const draggedElement = document.querySelector('.dragging');
-            const dropZone = event.target.closest('ul, details');
-
-            if (dropZone && draggedElement) {
-                dropZone.appendChild(draggedElement);
-                event.target.classList.remove('dragover');
-            }
-        }
-
-        function drag(event) {
-            event.dataTransfer.setData('text/plain', event.target.textContent);
-            event.target.classList.add('dragging');
-        }
-
-        document.addEventListener('dragend', function (event) {
-            const draggedElement = document.querySelector('.dragging');
-            if (draggedElement) {
-                draggedElement.classList.remove('dragging');
-            }
-        });
-    </script> -->
-
+    <script src="script.js"></script>
 </body>
 
 </html>
